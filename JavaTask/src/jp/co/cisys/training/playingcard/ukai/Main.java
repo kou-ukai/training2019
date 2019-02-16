@@ -40,19 +40,19 @@ public class Main {
 	private void init() {
 
 		// クラブのカードを生成
-		for(int i = 0; i < SIZE; i++) {
+		for (int i = 0; i < SIZE; i++) {
 			yamaCards.add(new Club(i + 1));
 		}
 		// ダイヤのカードを生成
-		for(int i = 0; i < SIZE; i++) {
+		for (int i = 0; i < SIZE; i++) {
 			yamaCards.add(new Diamond(i + 1));
 		}
 		// ハートのカードを生成
-		for(int i = 0; i < SIZE; i++) {
+		for (int i = 0; i < SIZE; i++) {
 			yamaCards.add(new Heart(i + 1));
 		}
 		// スペードのカードを生成
-		for(int i = 0; i < SIZE; i++) {
+		for (int i = 0; i < SIZE; i++) {
 			yamaCards.add(new Spade(i + 1));
 		}
 
@@ -66,7 +66,7 @@ public class Main {
 	public void start() {
 
 		// カードを5枚引く
-		for(int i = 0; i < 5; i++) {
+		for (int i = 0; i < 5; i++) {
 			// カードを引く
 			Card card = yamaCards.remove(i);
 
@@ -75,7 +75,7 @@ public class Main {
 		}
 
 		// 引いたカードの表示
-		for(Card card : teCards) {
+		for (Card card : teCards) {
 			System.out.println(card.getDisplay());
 		}
 
