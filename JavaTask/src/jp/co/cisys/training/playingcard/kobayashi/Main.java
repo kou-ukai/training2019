@@ -43,8 +43,8 @@ public class Main {
 		}
 		
 		//選択カード用　type 種類　math 数
-		String[] type=new String[5];
-		String[] math=new String[5];
+		String[] typeOut=new String[];
+		String[] mathOut=new String[];
 		
 		
 		//5枚選択ループ
@@ -53,29 +53,30 @@ public class Main {
 			Collections.shuffle(type);
 			Collections.shuffle(math);
 
-			type[count]=type.get(count);
-			math[count]=math.get(count);
+			typeOut[count]=type.get(count);
+			mathOut[count]=math.get(count);
 			
 			
 			//被り確認ループ
 			do{
 				boolean flag=false;
 			
-			        for(int time=type.length;time>0;time--){	
+			        for(int time=typeOut.length;time>0;time--){	
 				
-				if(type[time].equals(type[time])&&math[time].equals(math[time]){
+				//	
+				if(typeOut[time].equals(typeOut[time])&&mathOut[time].equals(mathOut[time]){
 					
 					 Collections.shuffle(type);
 			　　　　　　　　  Collections.shuffle(math);
 
-					type[count]=type.get(count);
-		                	math[count]=math.get(count);
+					typeOut[count]=type.get(count);
+		                	mathOut[count]=math.get(count);
 			
 					
 					flag=ture;
 					}
 				}
-			}while(flag==false)	
+			}while(flag==false);	
 			
 		
 		
