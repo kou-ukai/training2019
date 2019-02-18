@@ -84,7 +84,7 @@ public class Main {
 		//出力
 		for(int count=0;count<=5;count++){
 			
-		System.out.println(type[count]+"の"+math[count]);	
+		System.out.println(typeOut[count]+"の"+mathOut[count]);	
 			
 		}	
 	}
