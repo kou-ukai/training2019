@@ -10,14 +10,17 @@ public class Main {
 	final static int card = 13;
 
 	public static void main(String[] args) {
-
+		
+		//トランプ数字用リスト
 		List<String> math = new ArrayList();
 
+		//トランプ数字用リスト
 		List<String> type = new ArrayList<>(Arrays.asList("ハート", "ダイヤ", "スペード","クラブ"));
 		
-		
+		//数字の作成
 		for (int time = 1; time <= card; time++) {
 			
+			//トランプの表記条件
 			if (time == 1) {
 
 				math.add("A");
@@ -50,9 +53,11 @@ public class Main {
 		//5枚選択ループ
 		for(int count=0;count<=5;count++){
 			
+			//中身シャッフル
 			Collections.shuffle(type);
 			Collections.shuffle(math);
 
+			//出力用変数に格納
 			typeOut[count]=type.get(count);
 			mathOut[count]=math.get(count);
 			
@@ -63,17 +68,19 @@ public class Main {
 			
 			        for(int time=typeOut.length;time>0;time--){	
 				
-				//	
+				//被りの条件
 				if(typeOut[time].equals(typeOut[time])&&mathOut[time].equals(mathOut[time]){
 					
+					//再度シャッフル
 					 Collections.shuffle(type);
 			　　　　　　　　  Collections.shuffle(math);
 
+					//再度取得
 					typeOut[count]=type.get(count);
 		                	mathOut[count]=math.get(count);
 			
-					
 					flag=ture;
+				
 					}
 				}
 			}while(flag==false);	
