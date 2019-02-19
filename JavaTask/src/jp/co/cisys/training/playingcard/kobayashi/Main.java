@@ -46,54 +46,70 @@ public class Main {
 		}
 		
 		//選択カード用　type 種類　math 数
-		String[] typeOut=new String[];
-		String[] mathOut=new String[];
+		String[] typeOut = new String[5];
+		String[] mathOut = new String[5];
 		
 		
 		//5枚選択ループ
-		for(int count=0;count<=5;count++){
+		for(int count=0;count<=4;count++){
 			
 			//中身シャッフル
 			Collections.shuffle(type);
 			Collections.shuffle(math);
 
 			//出力用変数に格納
-			typeOut[count]=type.get(count);
-			mathOut[count]=math.get(count);
+			typeOut[count]=type.get(1);
+			mathOut[count]=math.get(1);
 			
-			
-			//被り確認ループ
-			do{
-				boolean flag=false;
-			
-			        for(int time=typeOut.length;time>0;time--){	
-				
-				//被りの条件
-				if(typeOut[time].equals(typeOut[time])&&mathOut[time].equals(mathOut[time]){
-					
-					//再度シャッフル
-					 Collections.shuffle(type);
-			　　　　　　　　  Collections.shuffle(math);
-
-					//再度取得
-					typeOut[count]=type.get(count);
-		                	mathOut[count]=math.get(count);
-			
-					flag=ture;
-				
-					}
-				}
-			}while(flag==false);	
-			
-		
-		
+	
 		}
+		
+		boolean flag=false;
+		
+		do {
+			
+			flag=false;
+		
+		
+		//かぶり確認ループ
+		for(int count=0;count<=4;count++) {
+			
+			
+			
+			for(int time=0;time<=4;time++) {
+				
+				if(typeOut[count].equals(typeOut[time])&&mathOut[count].equals(mathOut[time])) {
+					
+					//中身シャッフル
+					Collections.shuffle(type);
+					Collections.shuffle(math);
+
+					//出力用変数に格納
+					typeOut[count]=type.get(1);
+					mathOut[count]=math.get(1);
+					flag=true;
+					
+				}
+				
+				
+			}
+			
+		}
+		
+		}while(flag==false);
+		
+		
+		
+		
 		//出力
-		for(int count=0;count<=5;count++){
+		for(int count=0;count<=4;count++){
 			
 		System.out.println(typeOut[count]+"の"+mathOut[count]);	
 			
+		
 		}	
+	
 	}
+	
 
 }
