@@ -1,4 +1,4 @@
-package mathematics;
+package jp.co.cisys.training.mathematics.ikeda;
 
 public class Main {
 
@@ -6,8 +6,8 @@ public class Main {
 		// TODO 自動生成されたメソッド・スタブ
 
 		// 任意の2つの数字をセットする
-		int a = 0;
-		int b = 0;
+		int a = 18;
+		int b = 12;
 
 		// a <= bにする
 		if (a > b) {
