@@ -23,7 +23,8 @@ public class Gdc {
 		for(;number1%number2>0;) {
 			int gdc = number1 % number2;
 		    number1 = number2;
-			number2 = gdc;	
+			number2 = gdc;
+
 		}
 		return number2;
 
