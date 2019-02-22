@@ -26,16 +26,16 @@ public class Gdc {
 
 		for (;;) {
 
-			max = maxA % maxB;
+			max = maxB % maxA;
 
-			if (maxA != 0) {
+			if (max != 0) {
 
-				maxB=maxA;
+				maxB = maxA;
 				maxA = max;
 
 			} else {
 
-				max = maxB;
+				max = maxA;
 
 				break;
 			}
@@ -50,13 +50,7 @@ public class Gdc {
 	 */
 	public int getLcm() {
 
-		int min = 0;
-
-		int ab[];
-
-		//for (int i = 0; i < ab.length; i++) {
-
-		//}
+		int min = (a * b) / getGcd();
 
 		return min;
 
