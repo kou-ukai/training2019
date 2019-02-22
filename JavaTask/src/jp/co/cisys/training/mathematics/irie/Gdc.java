@@ -20,18 +20,12 @@ public class Gdc {
 		// ここを記述する。;
 		int number1 = b;
 		int number2 = a;
-		int gdc = 0;
-		do {
-
-
-		    gdc = number1 % number2;
+		for(;number1%number2>0;) {
+			int gdc = number1 % number2;
 		    number1 = number2;
-			number2 = gdc;
-
-
-		} while (gdc!=0);
-		gdc = number1;
-		return gdc;
+			number2 = gdc;	
+		}
+		return number2;
 
 	}
 
