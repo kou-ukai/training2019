@@ -17,9 +17,10 @@ public class Human {
 		String[] hand = new String[Get];
 
 		//山札からカードを取得（指定された枚数まで）
-		for (int i = 0; i < Get; i++) {
+		for (int i = Get;i>0; i--) {
 
-			hand[i] = card.getYama(i);
+			//0からSTの為、両方ー１
+			hand[i-1] = card.getYama(i-1);
 
 		}
 
