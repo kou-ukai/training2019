@@ -42,18 +42,6 @@ public class Card {
 
 	}
 
-	/**山の枚数を取得
-	 * @return　山の枚数
-	 */
-	public int sizeYama() {
-
-		int size = 0;
-
-		size = yama.size();
-
-		return size;
-	}
-
 	/**山からカードを引く
 	 * @param hand　取得する番号
 	 * @return　カードの名前を取得
@@ -65,6 +53,15 @@ public class Card {
 		hands = yama.get(hand);
 
 		return hands;
+	}
+
+	/**山からカードを削除
+	 * @param hand 取得する番号
+	 */
+	public void removeYama(int hand) {
+
+		yama.remove(hand);
+
 	}
 
 }
