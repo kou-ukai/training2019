@@ -1,8 +1,8 @@
 package jp.co.cisys.training.playingcard.irie;
 
 public class Card {
-	private int number;
-	private String mark;
+	private int number; //カードの数字
+	private String mark; //カードのマーク
 
 	public Card(int number, String mark) {
 		this.number = number;
@@ -11,6 +11,7 @@ public class Card {
 
 	public void printCard() {
 		String name;
+		//数字の呼び方を変え、マークと数字を表示
 		if (number == 1) {
 			name = "A";
 			System.out.println(mark + "の" + name);
