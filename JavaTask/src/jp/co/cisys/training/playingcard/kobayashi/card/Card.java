@@ -1,66 +1,52 @@
 package jp.co.cisys.training.playingcard.kobayashi.card;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
+/**
+ * @author cis
+ *
+ */
 public class Card {
 
-	//山用のリスト作成
-	private ArrayList<String> yama = new ArrayList<>();
-
-	//カードの種類名作成
-	final String[] Type = { "クローバー", "ダイヤ", "スペード", "ハート" };
-
-	//カードの数字の種類
-	final String[] Numbers = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+	private int num;//数字
+	private String types;//種類
 
 	/**
 	 * コンストラクタ
 	 */
-	public Card() {
+	public Card(int num, String types) {
+
+		this.num = num;
+		this.types = types;
 
 	}
 
 	/**
-	 * 山を作成+シャッフル
+	 * カードを出力
 	 */
-	public void yama() {
+	public void printCard() {
 
-		//山リストの作成
-		for (String a : Type) {
+		switch (num) {
 
-			for (String b : Numbers) {
+		case 1:
+			System.out.println(types + "A");
+			break;
 
-				yama.add(a + b);
+		case 11:
+			System.out.println(types + "J");
+			break;
 
-			}
+		case 12:
+			System.out.println(types + "Q");
+			break;
+
+		case 13:
+			System.out.println(types + "K");
+			break;
+
+		default:
+
+			System.out.println(types + num);
 
 		}
-
-		//中身をシャッフル
-		Collections.shuffle(yama);
-
-	}
-
-	/**山からカードを引く
-	 * @param hand　取得する番号
-	 * @return　カードの名前を取得
-	 */
-	public String getYama(int hand) {
-
-		String hands;
-
-		hands = yama.get(hand);
-
-		return hands;
-	}
-
-	/**山からカードを削除
-	 * @param hand 取得する番号
-	 */
-	public void removeYama(int hand) {
-
-		yama.remove(hand);
 
 	}
 
