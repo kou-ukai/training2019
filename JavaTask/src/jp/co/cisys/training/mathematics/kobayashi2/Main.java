@@ -6,45 +6,36 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		int[] num = { 12, 3, 9,48 };
+		int[] nums = { 9, 12, 48, 3};
+		
+		int maxGdc=0;// 最大公約数
+		int minGdc=0;//最少公倍数
+		
+		for (int i = 1; i < nums.length; i++) {
 
-		int maxGdc = 0;
+			switch(i) {
+				case 1:
+					int maxNum=Math.max(nums[0],nums[i]);
+					int minNum=Math.min(nums[0],nums[i]);
 
-		int minGdc=0;
+					Gdc gdc = new Gdc(maxNum, minNum);	
 
-		for (int i = 0; i < num.length - 1; i++) {
+					maxGdc = gdc.getGcd();
+					minGdc=gdc.getLcm();
+					break;
 
-			//if-elseを無くす形で作り直す
-			if (maxGdc == 0) {
+		        //2回目以降１回目の数値を元に計算を行う為
+                default:
+                	
+                	maxNum=Math.max(maxGdc, nums[i]);
+    				minNum=Math.min(maxGdc,nums[i]);
 
-				if (num[i] > num[i + 1]) {
-
-					int tmp = num[i];
-
-					num[i] = num[i + 1];
-
-					num[i + 1] = tmp;
-				}
-
-				Gdc gdc = new Gdc(num[i], num[i + 1]);
-
-				maxGdc = gdc.getGcd();
-				minGdc=gdc.getLcm();
-
-			} else {
-				if (maxGdc > num[i + 1]) {
-
-					int tmp = maxGdc;
-
-					maxGdc = num[i + 1];
-
-					num[i + 1] = tmp;
-
-				}
-				Gdc gdc = new Gdc(maxGdc, num[i + 1]);
-                Gdc lcm = new Gdc(minGdc,num[i+1]);
-				maxGdc = gdc.getGcd();
-				minGdc=lcm.getLcm();
+                	Gdc max = new Gdc(maxNum, minNum);
+					Gdc min = new Gdc(minGdc,nums[i]);
+					
+					maxGdc=max.getGcd();
+					minGdc=min.getLcm();
+					break;
 
 			}
 
@@ -52,7 +43,6 @@ public class Main {
 
 		System.out.println("最大公約数" + maxGdc);
 		System.out.println("最小公倍数" + minGdc);
-
 
 	}
 

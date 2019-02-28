@@ -20,22 +20,18 @@ public class Gdc {
 
 		int max = 0;
 
-		int maxA = a;
-
-		int maxB = b;
-
 		for (;;) {
 
-			max = maxB % maxA;
+			max = b % a;
 
 			if (max != 0) {
 
-				maxB = maxA;
-				maxA = max;
+				b = a;
+				a = max;
 
 			} else {
 
-				max = maxA;
+				max = a;
 
 				break;
 			}
