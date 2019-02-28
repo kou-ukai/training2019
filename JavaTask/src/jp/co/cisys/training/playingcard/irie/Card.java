@@ -1,25 +1,49 @@
 package jp.co.cisys.training.playingcard.irie;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 public class Card {
+	private int number; //カードの数字
+	private String mark; //カードのマーク
 
-	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
-		String[] marks = { "スペード", "ハート", "クローバー", "ダイヤ" };
-		String[] numbers = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
-		List<String> markList = Arrays.asList(marks);
-		List<String> numList = Arrays.asList(numbers);
-		Collections.shuffle(numList);
-		for (int i = 0; i < 5; i++) {
-			Collections.shuffle(markList);
-			System.out.println(markList.get(0) + "の" + numList.get(i));
+	public Card(int number, String mark) {
+		this.number = number;
+		this.mark = mark;
+	}
 
+	public void printCard() {
+		String name;
+		//数字の呼び方を変え、マークと数字を表示
+		if (number == 1) {
+			name = "A";
+			System.out.println(mark + "の" + name);
+		} else if (number == 11) {
+			name = "J";
+			System.out.println(mark + "の" + name);
+		} else if (number == 12) {
+			name = "Q";
+			System.out.println(mark + "の" + name);
+		} else if (number == 13) {
+			name = "K";
+			System.out.println(mark + "の" + name);
+		} else {
+			System.out.println(mark + "の" + number);
 		}
 
+	}
 
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
+	public String getMark() {
+		return mark;
+	}
+
+	public void setMark(String mark) {
+		this.mark = mark;
 	}
 
 }
