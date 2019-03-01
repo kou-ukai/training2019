@@ -5,30 +5,33 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 
-		// 任意の2つの数字をセットする
-		int[] a = { 15, 12, 70, 156 };
-		int gdc5 = a[0];
-		int lcm = a[0];
-		for (int i = 0; i < a.length ; i++) {
-			// a <= bにする
-			if (gdc5 > a[i]) {
-				int tmp = a[i];
-				a[i] =gdc5;
-				gdc5 = tmp;
+		// 任意の数の数字をセットする
+		int[] numbers = { 15, 12, 70, 156 };
+		int max = numbers[0]; //最大公約数
+		int min = numbers[0]; //最小公倍数
+
+		for (int i = 0; i < numbers.length; i++) {
+			// max <= numbers[i]にする
+			if (max > numbers[i]) {
+				int tmp = numbers[i];
+				numbers[i] = max;
+				max = tmp;
 			}
-			Gdc gdc1 = new Gdc(gdc5, a[i]);
-			gdc5= gdc1.getGcd();
-			if (lcm > a[i]) {
-				int tmp = a[i];
-				a[i] =lcm;
-				lcm = tmp;
+			Gdc gdc1 = new Gdc(max, numbers[i]);
+			max = gdc1.getGcd(); //最大公約数を求めてmaxに代入
+
+			// min <= numbers[i]にする
+			if (min > numbers[i]) {
+				int tmp = numbers[i];
+				numbers[i] = min;
+				min = tmp;
 			}
-			Gdc gdc2 = new Gdc(lcm, a[i]);
-			lcm = gdc2.getLcm();
+			Gdc gdc2 = new Gdc(min, numbers[i]);
+			min = gdc2.getLcm(); //最小公倍数を求めてminに代入
 		}
 
-		System.out.println(gdc5);
-		System.out.println(lcm);
+		System.out.println(max);
+		System.out.println(min);
 	}
 
 }
