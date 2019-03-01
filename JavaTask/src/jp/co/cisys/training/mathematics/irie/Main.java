@@ -10,24 +10,15 @@ public class Main {
 		int max = numbers[0]; //最大公約数
 		int min = numbers[0]; //最小公倍数
 		for (int i = 0; i < numbers.length; i++) {
-			
+
 			// max <= numbers[i]にする
-			if (max > numbers[i]) {
-				int tmp = numbers[i];
-				numbers[i] = max;
-				max = tmp;
-			}
+
 			Gdc gdc1 = new Gdc(max, numbers[i]);
 			max = gdc1.getGcd(); //最大公約数を求めてmaxに代入
 
 			// min <= numbers[i]にする
-			int num=numbers[i];
-			if (min > numbers[i]) {
-				int tmp = numbers[i];
-				num = min;
-				min = tmp;
-			}
-			Gdc gdc2 = new Gdc(min, num);
+
+			Gdc gdc2 = new Gdc(min, numbers[i]);
 			min = gdc2.getLcm();//最小公倍数を求めてminに代入
 		}
 
