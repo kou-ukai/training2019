@@ -27,26 +27,41 @@ public class Card {
 		switch (num) {
 
 		case 1:
-			System.out.println(types + "A");
+			System.out.println(types + "のA");
 			break;
 
 		case 11:
-			System.out.println(types + "J");
+			System.out.println(types + "のJ");
 			break;
 
 		case 12:
-			System.out.println(types + "Q");
+			System.out.println(types + "のQ");
 			break;
 
 		case 13:
-			System.out.println(types + "K");
+			System.out.println(types + "のK");
 			break;
 
 		default:
 
-			System.out.println(types + num);
+			System.out.println(types + "の" + num);
 
 		}
+
+	}
+
+	/**ダイヤの合計　算出用メソッド
+	 * @return　ダイヤの合計
+	 */
+	public int numDiamond() {
+
+		if (types.equals("ダイヤ")) {
+
+			return num;
+
+		}
+
+		return 0;
 
 	}
 

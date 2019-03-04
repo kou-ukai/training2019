@@ -6,34 +6,50 @@ import java.util.List;
 
 public class Human {
 
-	//カードの種類名作成
-	final static String[] Type = { "クローバー", "ダイヤ", "スペード", "ハート" };
-
 	public static void main(String[] args) {
 
-		//オブジェクト型のリストを作成
-		List<Card> card = new ArrayList<>();
+		//Card型のリストを作成
+		List<Card> cards = new ArrayList<>();
+		//手札作成
+		List<Card> hands=new ArrayList<>();
 
-		//リストにCardクラスのインスタンスを格納
-		for (String str : Type) {
-
-			for (int i = 1; i <= 13; i++) {
-
-				//数字種類とカード種類
-				card.add(new Card(i, str));
-
-			}
-
+		//各リスト作成
+		for (int i = 1; i < 13; i++) {
+			cards.add(new Heart(i));
 		}
-
+		for (int i = 1; i < 13; i++) {
+			cards.add(new Club(i));
+		}
+		for (int i = 1; i < 13; i++) {
+			cards.add(new Diamond(i));
+		}
+		for (int i = 1; i < 13; i++) {
+			cards.add(new Spade(i));
+		}
+		
 		//中身をシャッフル
-		Collections.shuffle(card);
+		Collections.shuffle(cards);
 
+		//手札の取得+開示
 		for (int i = 0; i < 5; i++) {
 
-			card.get(i).printCard();
+			cards.get(i).printCard();
+			hands.add(cards.get(i));
 
 		}
+		
+		//ダイヤ合計格納用　変数
+		int sumDiamond=0;
+		
+		//合計算出用　ループ
+		for(Card o:hands) {
+			
+			sumDiamond+=o.numDiamond();
+			
+		}
+		
+		//ダイヤ合計出力
+		System.out.println("ダイヤの合計数値は："+sumDiamond);
 
 	}
 
