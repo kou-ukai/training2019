@@ -32,10 +32,12 @@ public class Main {
 		//山札の上から5枚を引き、それを表示する
 		for (int i = 0; i < 5; i++) {
 
+			//引いたカードのダイヤの数字を足す
 			String mark = cardList.get(i).getMark();
 			if (mark.equals("ダイヤ")) {
 				total += cardList.get(i).getNumber();
 			}
+
 			cardList.get(i).printCard();
 
 		}
