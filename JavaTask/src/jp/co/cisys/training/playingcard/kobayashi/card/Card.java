@@ -49,20 +49,12 @@ public class Card {
 		}
 
 	}
-
-	/**ダイヤの合計　算出用メソッド
-	 * @return　ダイヤの合計
-	 */
-	public int numDiamond() {
-
-		if (types.equals("ダイヤ")) {
-
-			return num;
-
-		}
-
-		return 0;
-
+	
+	public int getNum() {
+		
+		return num;
+		
 	}
+	
 
 }

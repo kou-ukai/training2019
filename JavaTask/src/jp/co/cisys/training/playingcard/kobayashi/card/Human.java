@@ -44,12 +44,16 @@ public class Human {
 		//合計算出用　ループ
 		for(Card o:hands) {
 			
-			sumDiamond+=o.numDiamond();
+			if( o instanceof Diamond ) {
+				sumDiamond+=o.getNum();
+			}
 			
 		}
 		
 		//ダイヤ合計出力
 		System.out.println("ダイヤの合計数値は："+sumDiamond);
+		
+		
 
 	}
 
