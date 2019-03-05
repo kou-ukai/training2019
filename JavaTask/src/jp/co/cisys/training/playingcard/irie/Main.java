@@ -33,8 +33,7 @@ public class Main {
 		for (int i = 0; i < 5; i++) {
 
 			//引いたカードのダイヤの数字を足す
-			String mark = cardList.get(i).getMark();
-			if (mark.equals("ダイヤ")) {
+			if (cardList.get(i) instanceof Dia) {
 				total += cardList.get(i).getNumber();
 			}
 
