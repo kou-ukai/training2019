@@ -43,7 +43,6 @@ public class Card {
 			break;
 
 		default:
-
 			System.out.println(types + "の" + num);
 
 		}

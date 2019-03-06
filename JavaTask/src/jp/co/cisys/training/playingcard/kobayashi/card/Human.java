@@ -53,8 +53,6 @@ public class Human {
 		//ダイヤ合計出力
 		System.out.println("ダイヤの合計数値は："+sumDiamond);
 		
-		
-
 	}
 
 }

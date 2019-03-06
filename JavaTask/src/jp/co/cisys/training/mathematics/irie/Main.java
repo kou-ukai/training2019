@@ -5,21 +5,25 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 
-		// 任意の2つの数字をセットする
-		int a = 15;
-		int b = 12;
+		// 任意の数の数字をセットする
+		int[] numbers = { 15, 12, 70, 157 };
+		int max = numbers[0]; //最大公約数
+		int min = numbers[0]; //最小公倍数
+		for (int i = 0; i < numbers.length; i++) {
 
-		// a <= bにする
-		if (a > b) {
-			int tmp = a;
-			a = b;
-			b = tmp;
+			// max <= numbers[i]にする
+
+			Gdc gdc1 = new Gdc(max, numbers[i]);
+			max = gdc1.getGcd(); //最大公約数を求めてmaxに代入
+
+			// min <= numbers[i]にする
+
+			Gdc gdc2 = new Gdc(min, numbers[i]);
+			min = gdc2.getLcm();//最小公倍数を求めてminに代入
 		}
 
-		Gdc gdc = new Gdc(a, b);
-
-		System.out.println(gdc.getGcd());
-		System.out.println(gdc.getLcm());
+		System.out.println(max);
+		System.out.println(min);
 	}
 
 }
