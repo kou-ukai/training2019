@@ -1,6 +1,6 @@
 package jp.co.cisys.training.playingcard.irie;
 
-public class Card {
+public abstract class Card {
 	private int number; //カードの数字
 	private String mark; //カードのマーク
 
