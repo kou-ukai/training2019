@@ -1,4 +1,4 @@
-package mathematics;
+package jp.co.cisys.training.mathematics.ikeda;
 
 public class Main {
 
