@@ -16,7 +16,7 @@ public class Gdc {
 	 */
 	public int getGcd() {
 		int max = numList[0];  //最大公約数
-		for (int i = 0; i < numList.length; i++) {
+		for (int i = 1; i < numList.length; i++) {
 			max=getGcd(numList[i],max);
 
 		}
@@ -42,7 +42,7 @@ public class Gdc {
 	public int getLcm() {
 		// ここを記述する。
 		int min = numList[0];  //最小公倍数
-		for (int i = 0; i < numList.length; i++) {
+		for (int i = 1; i < numList.length; i++) {
 			min=min*numList[i]/getGcd(min,numList[i]);
 		}
 
