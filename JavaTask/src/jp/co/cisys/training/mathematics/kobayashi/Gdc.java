@@ -2,15 +2,13 @@ package jp.co.cisys.training.mathematics.kobayashi;
 
 public class Gdc {
 
-	private int a;
-	private int b;
+	private int[] numList;
 
 	/**
 	 * <pre>コンストラクタ</pre>
 	 */
-	public Gdc(int a, int b) {
-		this.a = a;
-		this.b = b;
+	public Gdc(int[] numList) {
+		this.numList = numList;
 	}
 
 	/**
@@ -18,27 +16,11 @@ public class Gdc {
 	 */
 	public int getGcd() {
 
-		int max = 0;
+		int max = numList[0];
 
-		int maxA = a;
+		for (int i = 1; i < numList.length; i++) {
 
-		int maxB = b;
-
-		for (;;) {
-
-			max = maxB % maxA;
-
-			if (max != 0) {
-
-				maxB = maxA;
-				maxA = max;
-
-			} else {
-
-				max = maxA;
-
-				break;
-			}
+			max = getGcd(max, numList[i]);
 
 		}
 
@@ -50,9 +32,31 @@ public class Gdc {
 	 */
 	public int getLcm() {
 
-		int min = (a * b) / getGcd();
+		int ansLcm = numList[0];
 
-		return min;
+		for (int i = 1; i < numList.length; i++) {
+
+			ansLcm = (ansLcm * numList[i]) / getGcd(ansLcm, numList[i]);
+
+		}
+
+		return ansLcm;
 
 	}
+
+	public int getGcd(int num1, int num2) {
+
+		while (num1 % num2 != 0) {
+
+			int tmp = num2;
+
+			num2 = num1;
+
+			num1 = tmp % num2;
+
+		}
+
+		return num2;
+	}
+
 }
