@@ -16,7 +16,7 @@ CREATE TABLE public.m_item
     category_id integer NOT NULL,
     item_name character varying(40),
     price integer,
-    CONSTRAINT m_item_pkey PRIMARY KEY (item_id)
+    CONSTRAINT m_item_pkey PRIMARY KEY (item_id, category_id)
 );
 COMMENT ON TABLE m_item
     IS '商品マスタ';
@@ -64,9 +64,25 @@ COMMENT ON COLUMN m_item_category.deleted
 | 3 | 菓子 | true |
 | 4 | 飲料 | false |
 
+テーブル「商品マスタ」に次の商品を登録するSQLを作成してください。
+
+| 商品ID | カテゴリID | 商品名 | 価格 |
+|---:|----|----|----:|
+| 1 | 1 | なす | 156 |
+| 2 | 1 | 白菜 | 228 |
+| 3 | 1 | キャベツ | 198 |
+| 1 | 2 | 鶏胸肉 | 78 |
+| 2 | 2 | 鶏もも肉 | 128 |
+| 3 | 2 | ささみ | 198 |
+| 1 | 3 | チョコ | 98 |
+| 2 | 3 | スナック | 100 |
+| 3 | 3 | ふがし | 200 |
+| 1 | 4 | ミックスジュース | 110 |
+| 2 | 4 | 野菜ジュース | 100 |
+| 3 | 4 | エナジードリンク | 198 |
 
 ## 課題2
-テーブル「商品マスタ」に任意の商品を登録するSQLを作成してください。
+
 
 ## 課題3
 テーブル「商品カテゴリマスタ」から商品名が"野菜"であるレコードを抽出するSQLを作成してください。
