@@ -4,7 +4,7 @@
 - DBMSはPostgres9.6以上
 - SQL Fiddleをお借りしてSQLを実行してください。
 
-http://sqlfiddle.com/#!17/af1d9/1
+http://sqlfiddle.com
 
 ## テーブル一覧
 
