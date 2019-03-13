@@ -16,3 +16,20 @@ insert into m_item(item_id,category_id,item_name,price)values(3,3,'ふがし',200);
 insert into m_item(item_id,category_id,item_name,price)values(1,4,'ミックスジュース',110);
 insert into m_item(item_id,category_id,item_name,price)values(2,4,'野菜ジュース',100);
 insert into m_item(item_id,category_id,item_name,price)values(3,4,'エナジードリンク',198);
+select*from m_item; 
+--課題2
+update m_item_category set deleted=false WHERE category_id=3;
+select*from m_item_category;
+--課題3
+select*from m_item_category where category_name='野菜';
+--課題4
+select item_id from m_item group by item_id;
+select item_name from m_item group by item_name;
+select price from m_item group by  price;
+--課題5
+select*from m_item where category_id=2;
+--課題6
+select*from m_item_category LEFT OUTER JOIN m_item ON m_item_category.category_id=m_item.category_id;
+--課題7
+delete from m_item where category_id=2;
+select*from m_item;
