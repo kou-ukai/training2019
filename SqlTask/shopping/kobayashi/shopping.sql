@@ -1,36 +1,33 @@
---‰Û‘è1
-insert into m_item_category(category_id,category_name,deleted) VALUES (1,'–ìØ',false);
-insert into m_item_category(category_id,category_name,deleted) VALUES (2,'“÷',false);
-insert into m_item_category(category_id,category_name,deleted) VALUES (3,'‰Ùq',true);
-insert into m_item_category(category_id,category_name,deleted) VALUES (4,'ˆù—¿',false);
+--èª²é¡Œ1
+insert into m_item_category(category_id,category_name,deleted) VALUES (1,'é‡èœ',false);
+insert into m_item_category(category_id,category_name,deleted) VALUES (2,'è‚‰',false);
+insert into m_item_category(category_id,category_name,deleted) VALUES (3,'è“å­',true);
+insert into m_item_category(category_id,category_name,deleted) VALUES (4,'é£²æ–™',false);
 select*from m_item_category;
-insert into m_item(item_id,category_id,item_name,price) VALUES (1,1,'‚È‚·',156);
-insert into m_item(item_id,category_id,item_name,price) VALUES (2,1,'”’Ø',228);
-insert into m_item(item_id,category_id,item_name,price) VALUES (3,1,'ƒLƒƒƒxƒc',198);
-insert into m_item(item_id,category_id,item_name,price) VALUES (1,2,'Œ{‹¹“÷',78);
-insert into m_item(item_id,category_id,item_name,price) VALUES (2,2,'Œ{‚à‚à“÷',128);
-insert into m_item(item_id,category_id,item_name,price) VALUES (3,2,'‚³‚³‚İ',198);
-insert into m_item(item_id,category_id,item_name,price) VALUES (1,3,'ƒ`ƒ‡ƒR',98);
-insert into m_item(item_id,category_id,item_name,price) VALUES (2,3,'ƒXƒiƒbƒN',100);
-insert into m_item(item_id,category_id,item_name,price) VALUES (3,3,'‚Ó‚ª‚µ',200);
-insert into m_item(item_id,category_id,item_name,price) VALUES (1,4,'ƒ~ƒbƒNƒXƒWƒ…[ƒX',110);
-insert into m_item(item_id,category_id,item_name,price) VALUES (2,4,'–ìØƒWƒ…[ƒX',100);
-insert into m_item(item_id,category_id,item_name,price) VALUES (3,4,'ƒGƒiƒW[ƒhƒŠƒ“ƒN',198);
+insert into m_item(item_id,category_id,item_name,price) VALUES (1,1,'ãªã™',156);
+insert into m_item(item_id,category_id,item_name,price) VALUES (2,1,'ç™½èœ',228);
+insert into m_item(item_id,category_id,item_name,price) VALUES (3,1,'ã‚­ãƒ£ãƒ™ãƒ„',198);
+insert into m_item(item_id,category_id,item_name,price) VALUES (1,2,'é¶èƒ¸è‚‰',78);
+insert into m_item(item_id,category_id,item_name,price) VALUES (2,2,'é¶ã‚‚ã‚‚è‚‰',128);
+insert into m_item(item_id,category_id,item_name,price) VALUES (3,2,'ã•ã•ã¿',198);
+insert into m_item(item_id,category_id,item_name,price) VALUES (1,3,'ãƒãƒ§ã‚³',98);
+insert into m_item(item_id,category_id,item_name,price) VALUES (2,3,'ã‚¹ãƒŠãƒƒã‚¯',100);
+insert into m_item(item_id,category_id,item_name,price) VALUES (3,3,'ãµãŒã—',200);
+insert into m_item(item_id,category_id,item_name,price) VALUES (1,4,'ãƒŸãƒƒã‚¯ã‚¹ã‚¸ãƒ¥ãƒ¼ã‚¹',110);
+insert into m_item(item_id,category_id,item_name,price) VALUES (2,4,'é‡èœã‚¸ãƒ¥ãƒ¼ã‚¹',100);
+insert into m_item(item_id,category_id,item_name,price) VALUES (3,4,'ã‚¨ãƒŠã‚¸ãƒ¼ãƒ‰ãƒªãƒ³ã‚¯',198);
 select*from m_item;
---‰Û‘è2
+--èª²é¡Œ2
 UPDATE m_item_category SET deleted=false WHERE category_id=3;
 select*from m_item_category;
---‰Û‘è3
-select category_id,category_name,deleted FROM m_item_category WHERE category_name='–ìØ';
---‰Û‘è4
+--èª²é¡Œ3
+select category_id,category_name,deleted FROM m_item_category WHERE category_name='é‡èœ';
+--èª²é¡Œ4
 select*from m_item;
---‰Û‘è5
+--èª²é¡Œ5
 select item_id,category_id,item_name,price FROM m_item WHERE category_id=2;
---‰Û‘è6
+--èª²é¡Œ6
 select*from m_item_category LEFT OUTER JOIN m_item ON m_item_category.category_id=m_item.category_id;
---‰Û‘è7
-
-delete from m_item_category from m_item_category left join m_item ON 
-m_item_category.category_id=m_item.category_id
-WHERE m_item.category_id=3;
-
+--èª²é¡Œ7
+delete from m_item where category_id=2;
+select*from m_item;
