@@ -31,5 +31,5 @@ select*from m_item where category_id=2;
 --‰Û‘è6
 select m_item_category.category_name,m_item.item_name from m_item_category LEFT OUTER JOIN m_item ON m_item_category.category_id=m_item.category_id where m_item.category_id=2 ;
 --‰Û‘è7
-delete from m_item where category_id=2;
+delete from m_item where item_id=1 and category_id=2;
 select*from m_item;
