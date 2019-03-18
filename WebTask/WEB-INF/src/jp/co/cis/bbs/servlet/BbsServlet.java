@@ -20,6 +20,9 @@ public class BbsServlet extends HttpServlet {
 		// TODO リクエストパラメータの取得
 
 		req.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(req, resp);
+
+		// TODO ブラウザで確認
+		// http://localhost:8080/WebTask/
 	}
 
 	@Override
