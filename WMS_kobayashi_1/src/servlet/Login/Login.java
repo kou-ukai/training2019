@@ -33,7 +33,7 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 
 		// エラーメッセージラベルを初期化
-		String message;
+		String message="";
 		String jsp;
 
 		// ユーザ情報を取得
@@ -47,7 +47,6 @@ public class Login extends HttpServlet {
 		// 初回起動時の処理を記述（起動時全てnullの為、空かどうかは次に記述）
 		if (userId == null && password == null) {
 
-			message = "ID・パスワードを入力してください";
 			request.setAttribute("message", message);
 			jsp = "WEB-INF/jsp/login.jsp";
 
