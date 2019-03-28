@@ -49,28 +49,28 @@ public class Login extends HttpServlet {
 
 			message = "ID・パスワードを入力してください";
 			request.setAttribute("message", message);
-			jsp = "login.jsp";
+			jsp = "WEB-INF/jsp/login.jsp";
 
 		//PASSかIDどちらかが入力されなっかた場合
 		} else if (userId.isEmpty() || password.isEmpty()) {
 
 			message = "必ずID・パスワードを入力してください";
 			request.setAttribute("message", message);
-			jsp = "login.jsp";
+			jsp = "WEB-INF/jsp/login.jsp";
 
 		// ユーザが存在しない場合、エラーメッセージを設定し、ログイン画面を表示する。
 		} else if (mst.selectUserMst(selectUser) == null) {
 
 			message = "ユーザが存在しません";
 			request.setAttribute("message", message);
-			jsp = "login.jsp";
+			jsp = "WEB-INF/jsp/login.jsp";
 			
 		//パスワードが違う場合、エラーメッセージを設定し、ログイン画面を表示する。
 		}else if(!mst.selectUserMst(selectUser).getPassword().equals(password)) {
 			
 			message = "パスワードが違います";
 			request.setAttribute("message", message);
-			jsp = "login.jsp";
+			jsp = "WEB-INF/jsp/login.jsp";
 
 		// ユーザが存在する場合、以下の処理を行う。
 		} else {
@@ -91,7 +91,7 @@ public class Login extends HttpServlet {
 			request.setAttribute("userName", mst.selectUserMst(selectUser).getUserName());
 
 			// メニュー画面を表示する。
-			jsp = "menu.jsp";
+			jsp = "WEB-INF/jsp/menu.jsp";
 		}
 
 		RequestDispatcher dispatcher;
