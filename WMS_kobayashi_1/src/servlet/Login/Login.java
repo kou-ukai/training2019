@@ -60,17 +60,10 @@ public class Login extends HttpServlet {
 		// ユーザが存在しない場合、エラーメッセージを設定し、ログイン画面を表示する。
 		} else if (mst.selectUserMst(selectUser) == null) {
 
-			message = "ユーザが存在しません";
+			message = "ユーザかパスワードが違います";
 			request.setAttribute("message", message);
 			jsp = "WEB-INF/jsp/login.jsp";
-			
-		//パスワードが違う場合、エラーメッセージを設定し、ログイン画面を表示する。
-		}else if(!mst.selectUserMst(selectUser).getPassword().equals(password)) {
-			
-			message = "パスワードが違います";
-			request.setAttribute("message", message);
-			jsp = "WEB-INF/jsp/login.jsp";
-
+		
 		// ユーザが存在する場合、以下の処理を行う。
 		} else {
 
