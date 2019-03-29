@@ -45,7 +45,10 @@ public class Login extends HttpServlet {
 		USER_MST us=null;
 		UserMst um=null;
 		
-		if(userId!=null&&!userId.isEmpty()&&password!=null&&!password.isEmpty()) {
+		if(userId==null&&password==null) {
+			request.setAttribute("message", errorMessage);
+			jsp="/WEB-INF/jsp/login.jsp";
+		}else{
 			us=new USER_MST();
 			um=us.selectUserMst(new SelectUserMst(userId,password));//ユーザー情報を格納
 			// 入力されたユーザID、パスワードが存在するかチェック
@@ -78,9 +81,6 @@ public class Login extends HttpServlet {
 				}
 			}
 			
-		}else {
-			request.setAttribute("message", errorMessage);
-			jsp="/WEB-INF/jsp/login.jsp";
 		}
 		
 		
