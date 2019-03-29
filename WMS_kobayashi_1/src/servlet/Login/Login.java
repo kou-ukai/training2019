@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.USER_MST.USER_MST;
 import entity.UserMst.SelectUserMst;
+import entity.UserMst.UserMst;
 
 /**
  * Servlet implementation class Login
@@ -33,7 +34,7 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 
 		// エラーメッセージラベルを初期化
-		String message="";
+		String message = "";
 		String jsp;
 
 		// ユーザ情報を取得
@@ -50,40 +51,52 @@ public class Login extends HttpServlet {
 			request.setAttribute("message", message);
 			jsp = "WEB-INF/jsp/login.jsp";
 
-		//PASSかIDどちらかが入力されなっかた場合
+			//PASSかIDどちらかが入力されなっかた場合
 		} else if (userId.isEmpty() || password.isEmpty()) {
 
 			message = "必ずID・パスワードを入力してください";
 			request.setAttribute("message", message);
 			jsp = "WEB-INF/jsp/login.jsp";
 
-		// ユーザが存在しない場合、エラーメッセージを設定し、ログイン画面を表示する。
-		} else if (mst.selectUserMst(selectUser) == null) {
-
-			message = "ユーザかパスワードが違います";
-			request.setAttribute("message", message);
-			jsp = "WEB-INF/jsp/login.jsp";
-		
-		// ユーザが存在する場合、以下の処理を行う。
+			// ユーザが存在しない場合、エラーメッセージを設定し、ログイン画面を表示する。
 		} else {
 
-			if (mst.selectUserMst(selectUser).getAuthority().equals("9")) {
+			UserMst um = mst.selectUserMst(selectUser);
+			
+			if (um == null && um == null) {
+
+				message = "ユーザかパスワードが違います";
+				request.setAttribute("message", message);
+				jsp = "WEB-INF/jsp/login.jsp";
+				
+			} else if (um.getAuthority().equals("9")) {
 
 				// 取得したUSER_MST.Authorityが"9"の場合、menu.jspの"title"に"管理者用メニュー"をセットする。
 				request.setAttribute("title", "管理者メニュー");
+				
+				// menu.jspの"userName"に取得したUSER_MST.UserNameをセットする。
+				request.setAttribute("userName", um.getUserName());
+				
+				// メニュー画面を表示する。
+				jsp = "WEB-INF/jsp/menu.jsp";
+				
 
 			} else {
 
 				// 取得したUSER_MST.Authorityが"0"の場合、menu.jspの"title"に"一般用メニュー"をセットする。
 				request.setAttribute("title", "一般メニュー");
+				
+				// menu.jspの"userName"に取得したUSER_MST.UserNameをセットする。
+				request.setAttribute("userName", um.getUserName());
+				
+				// メニュー画面を表示する。
+				jsp = "WEB-INF/jsp/menu.jsp";
 
 			}
 
-			// menu.jspの"userName"に取得したUSER_MST.UserNameをセットする。
-			request.setAttribute("userName", mst.selectUserMst(selectUser).getUserName());
+			
 
-			// メニュー画面を表示する。
-			jsp = "WEB-INF/jsp/menu.jsp";
+			
 		}
 
 		RequestDispatcher dispatcher;
