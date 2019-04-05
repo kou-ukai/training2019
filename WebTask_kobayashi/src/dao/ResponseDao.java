@@ -17,13 +17,14 @@ import bean.ResponseBean;
 public class ResponseDao {
 
 	//データベースアクセス用　変数
+	
 	private final String JDBC_URL = "jdbc:mysql://192.168.1.37:3306/training_bbs";
 	private final String DB_USER = "training_user1";
 	private final String DB_PASS = "password";
 	public Connection connection;
 
 	//データベース追加文
-	private final String INSERT_SQL = "INSERT INTO Response(Thread_id,response_name,response_coment) VALUES(?,?,?)";
+	private final String INSERT_SQL = "INSERT INTO Response(thread_id,response_name,response_coment) VALUES(?,?,?)";
 
 	//スレッドIDによる検索SQL文
 	private final String THREAD_ID_SEACH_SQL = "SELECT * FROM Response WHERE thread_id=?";
@@ -31,12 +32,14 @@ public class ResponseDao {
 	/**インスタンス作成と同時にデータベースとの接続を行う
 	 * @throws SQLException
 	 */
-	public ResponseDao() throws SQLException {
+	public ResponseDao() throws SQLException,Exception {
+		
+		Class.forName("com.mysql.jdbc.Driver");
 
 		connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
 	}
-
+	
 	/**
 	 * データベース切断用メソッド
 	 */
@@ -123,10 +126,10 @@ public class ResponseDao {
 			//結果をListに格納
 			while (rs.next()) {
 				rBean = new ResponseBean();
-				rBean.setT_id(rs.getInt("Response_id"));
-				rBean.setT_id(rs.getInt("Thread_id"));
-				rBean.setR_name(rs.getString("Response_name"));
-				rBean.setR_coment(rs.getString("Response_coment"));
+				rBean.setT_id(rs.getInt("response_id"));
+				rBean.setT_id(rs.getInt("thread_id"));
+				rBean.setR_name(rs.getString("response_name"));
+				rBean.setR_coment(rs.getString("response_coment"));
 				comentList.add(rBean);
 			}
 
