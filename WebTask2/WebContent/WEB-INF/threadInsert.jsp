@@ -15,23 +15,23 @@
 	<h1>掲示板登録画面</h1>
 	<hr />
 	<hr />
-	<p class="direct">掲示板IDと掲示板タイトルを入力して登録ボタンを押してください</p>
+	<p class="direct">掲示板のタイトルを入力して登録ボタンを押してください</p>
 	<form action="insert" method="get">
-	<table>
-		<tr>
-			<td>掲示板ID</td>
-			<td><input type="text" name="id" value="" /></td>
-		</tr>
-		<tr>
-			<td>掲示板タイトル</td>
-			<td><input type="text" name="title" value="" /></td>
-		</tr>
-		<tr>
-			<td class="insert" colspan="2"><input type="submit" value="登録" /></td>
-		</tr>
-	</table>
+		<table>
+
+			<tr>
+				<td>掲示板タイトル</td>
+				<td><input type="text" name="title" value="" /></td>
+			</tr>
+			<tr>
+				<td class="insert" colspan="2"><input type="submit" value="登録" /></td>
+			</tr>
+		</table>
 	</form>
-	<p class="message">${message }</p>
+	<c:if test="${not empty message }">
+		<p class="message">${message }</p>
+	</c:if>
 	<a href="aa">掲示板一覧に戻る</a>
+
 </body>
 </html>

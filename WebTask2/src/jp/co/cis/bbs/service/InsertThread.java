@@ -10,12 +10,11 @@ import jp.co.cis.bbs.model.ThreadBean;
 public class InsertThread  {
 	public void execute(HttpServletRequest request)throws Exception{
 		ThreadDao dao=null;
-		String id=request.getParameter("id");
 		String title=request.getParameter("title");
 		try {
-			if(id!=null&&!id.isEmpty()&&title!=null&&!title.isEmpty()) {
+			if(title!=null&&!title.isEmpty()) {
 				ThreadBean bean=new ThreadBean();
-				bean.setId(id);
+				
 				bean.setTitle(title);
 				bean.setTime(LocalDate.now().toString());
 				dao=new ThreadDao();
@@ -27,7 +26,7 @@ public class InsertThread  {
 				}
 				
 			}else {
-				request.setAttribute("messaage","掲示板ID、掲示板タイトルに未入力欄があります");
+				request.setAttribute("messaage","掲示板タイトルが未入力です");
 			}
 	    }finally {
 	    	if(dao!=null) {

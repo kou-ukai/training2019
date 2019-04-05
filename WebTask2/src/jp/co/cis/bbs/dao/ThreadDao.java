@@ -14,7 +14,7 @@ public class ThreadDao {
 	
 	//データベース接続
 	public ThreadDao()throws SQLException{
-		String url="jdbc:mysql://192.168.1.37:3306/;training_bbs";
+		String url="jdbc:mysql://192.168.1.37:3306/training_bbs";
 		String user="training_user1";
 		String password="password";
 		connection=DriverManager.getConnection(url, user, password);
@@ -66,15 +66,15 @@ public class ThreadDao {
 		try {
 			connection.setAutoCommit(false);
 			
-			String sql="INSERT INTO thread (thread_id,thread_title,thread_time) VALUES(?,?,?)";
+			String sql="INSERT INTO thread (thread_title,thread_time) VALUES(?,?)";
 			pstatement=connection.prepareStatement(sql);
-			pstatement.setString(1, bb.getId());
-			pstatement.setString(2, bb.getTitle());
-			pstatement.setString(3, bb.getTime());
+			
+			pstatement.setString(1, bb.getTitle());
+			pstatement.setString(2, bb.getTime());
 			
 			numRow=pstatement.executeUpdate();
 		}finally {
-			if(numRow!=0) {
+			if(numRow>0) {
 				connection.commit(); //insertできたらcommit
 			}else {
 				connection.rollback(); //insert出来なかったらrollback
