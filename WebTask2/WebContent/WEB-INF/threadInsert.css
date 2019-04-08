@@ -1,0 +1,33 @@
+table, tr {
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+	line-height: 1.5;
+	position: relative;
+	left: 10px;
+	top: 15px;
+}
+
+td.insert {
+	text-align: center;
+}
+
+h1 {
+	font-size: 60px;
+	position: relative;
+	left: 10px;
+	top: 15px;
+}
+
+p.direct {
+	position: relative;
+	left: 10px;
+}
+p.message{
+	
+	font-size: 60px;
+	position: relative;
+	top: 15px;
+	left: 10px;
+	color:red;
+	background-color:white;
+}
