@@ -5,17 +5,40 @@ import javax.servlet.http.HttpServletRequest;
 import jp.co.cis.bbs.dao.ResponseDao;
 import jp.co.cis.bbs.model.ResponseBean;
 
+public class ResponseService {
+	
+	
+	public void select(HttpServletRequest request) throws Exception{
 
-/**
- *データベースに登録・追加を行う為の前処理
- */
-public class ResponseInsert {
+		ResponseDao rDao=null;
+		String t_id=request.getParameter("t_id");
 
-	/**コメントの追加する為の確認・情報の取り出しメソッド
-	 * @param request　ページからの情報受け取り
-	 * @throws Exception
-	 */
-	public void excute (HttpServletRequest request) throws Exception{
+		try {
+
+			if(t_id !=null && !t_id.isEmpty()) {
+
+				rDao=new ResponseDao();
+				rDao.threadIdSeach(Integer.parseInt(t_id),request);
+
+
+			}else {
+
+				request.setAttribute("message", "トッピクIDが見つかりません");
+
+			}
+
+		}finally {
+
+			if(rDao !=null) {
+
+				rDao.close();
+
+			}
+
+		}
+	}
+	
+	public void insert (HttpServletRequest request) throws Exception{
 
 		ResponseDao rDao=null;
 
@@ -56,5 +79,6 @@ public class ResponseInsert {
 
 
 	}
+
 
 }

@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.cis.bbs.service.ResponseInsert;
-import jp.co.cis.bbs.service.ResponseSelect;
+import jp.co.cis.bbs.service.ResponseService;
 
 /**
  * Servlet implementation class ComentServlet
@@ -35,12 +34,12 @@ public class ResponseServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		ResponseSelect select = new ResponseSelect();
+		ResponseService rService = new ResponseService();
 
 		try {
 
 			//コメント検索
-			select.execute(request);
+			rService.select(request);
 
 		} catch (Exception e) {
 
@@ -66,15 +65,14 @@ public class ResponseServlet extends HttpServlet {
 
 		try {
 
-			ResponseSelect select = new ResponseSelect();
+			ResponseService rService = new ResponseService();
 			//コメント検索
-			select.execute(request);
+			rService.select(request);
 
 			if (btn != null && !btn.isEmpty()) {
 
 				//コメントの追加
-				ResponseInsert insert = new ResponseInsert();
-				insert.excute(request);
+				rService.insert(request);
 
 			} else {
 

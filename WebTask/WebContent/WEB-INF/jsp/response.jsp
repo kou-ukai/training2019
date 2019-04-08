@@ -43,7 +43,7 @@
 		<p><textarea name="r_coment" rows="10" cols="40"></textarea></p>
 		<p><input type="submit" value="  画像添付  " class="btn-flat-simple" />
 			<input type="submit" value="  動画添付  " class="btn-flat-simple" />
-			<input type="submit" value="   投稿   " class="btn-flat-simple" />
+			<input type="submit" name="btn" value="   投稿   " class="btn-flat-simple" />
 		</p>
  	</div>
 
