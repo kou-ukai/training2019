@@ -9,7 +9,7 @@
 <title>BBS</title>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
-<link rel="stylesheet" href="threadlist.css">
+<link rel="stylesheet" href="css/threadlist.css">
 </head>
 <body>
 	<h1>CISBBS</h1>
@@ -38,7 +38,7 @@
 			</c:forEach>
 		</c:if>
 	</form>
-	
+
 	<form action="aa" method="post">
 		<input type="submit" value="新しく掲示板を作る" />
 	</form>

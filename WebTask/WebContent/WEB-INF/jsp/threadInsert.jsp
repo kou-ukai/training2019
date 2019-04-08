@@ -9,7 +9,7 @@
 <title>BBS</title>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
-<link rel="stylesheet" href="threadInsert.css">
+<link rel="stylesheet" href="css/threadInsert.css">
 </head>
 <body>
 	<h1>掲示板登録画面</h1>
