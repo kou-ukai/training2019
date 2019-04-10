@@ -129,7 +129,10 @@ public class ResponseDao {
 				rBean.setT_id(rs.getInt("response_id"));
 				rBean.setT_id(rs.getInt("thread_id"));
 				rBean.setR_name(rs.getString("response_name"));
-				rBean.setR_coment(rs.getString("response_coment"));
+				
+				
+				rBean.setR_coment(rs.getString("response_coment").replaceAll(" ", "<br>"));
+				
 				comentList.add(rBean);
 			}
 

@@ -91,8 +91,9 @@ public class ResponseServlet extends HttpServlet {
 		}
 
 		ServletContext context = getServletContext();
-		RequestDispatcher dispatcher = context.getRequestDispatcher("/jsp/response.jsp");
+		RequestDispatcher dispatcher = context.getRequestDispatcher("/WEB-INF/jsp/response.jsp");
 		dispatcher.forward(request, response);
+		// http://localhost:8080/WebTask/ResponseServlet
 
 	}
 

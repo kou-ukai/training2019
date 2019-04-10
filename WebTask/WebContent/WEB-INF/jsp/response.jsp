@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,14 +14,14 @@
 
 <body>
 
-
+<div class="contents">
 
 	<header>
 	<h1><span><%-- スレッド名 --%>コメントページ</span></h1>
 	<div class="box1"><p>趣味　趣味　趣味　趣味　趣味　趣味　趣味　趣味</p></div>
 	</header>
 
-<div id="contents">
+
 	<form action="ResponseServlet" method="post" >
 	<!-- トピック表示欄 -->
 	<table border="1">
@@ -38,7 +39,7 @@
 
 	<!-- コメント追加記入欄 -->
 	<div class="box4">
-		<p>名前:<input type="text" name="name" value="" /></p>
+		<p>名前:<input type="text" name="r_name" value="" /></p>
 		<p>コメント内容</p>
 		<p><textarea name="r_coment" rows="10" cols="40"></textarea></p>
 		<p><input type="submit" value="  画像添付  " class="btn-flat-simple" />
@@ -56,16 +57,16 @@
 
 	<c:if test="${not empty  comentList}">
 
-			<c:forEach var="coment" items="{comentList}">
+			<c:forEach var="coment" items="${comentList}">
 
 				<div class="box11">
 
 					<p>
-						ニックネーム:${comet.getName()}
+						ニックネーム:${coment.r_name}
 					</p>
 
 					<p>
-						${comet.getComent() }
+						${coment.r_coment }
 					</p>
 
 				</div>
