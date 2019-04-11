@@ -20,7 +20,7 @@ public class USER_MST {
 	public UserMst selectUserMst(SelectUserMst prm) {
 
 		return this.table.parallelStream()
-				.filter(t -> t.getUserId().equals(prm.getUserId()) && t.getPassword().equals(prm.getUserId()))
+				.filter(t -> t.getUserId().equals(prm.getUserId()) && t.getPassword().equals(prm.getPassword()))
 				.findFirst()
 				.orElse(null);
 	}
