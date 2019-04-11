@@ -32,7 +32,7 @@ public class BbsController extends HttpServlet {
 		req.getRequestDispatcher(jsp).forward(req, resp);
 
 		// TODO ブラウザで確認
-		// http://localhost:8080/WebTask/
+		// http://localhost:8080/WebTask/aa
 	}
 
 	@Override

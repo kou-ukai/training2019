@@ -12,15 +12,19 @@
 <link rel="stylesheet" href="css/threadInsert.css">
 </head>
 <body>
-	<h1>掲示板登録画面</h1>
+	<div class="back">
+		<h1>スレッド登録画面</h1>
+		<hr />
+	</div>
+
 	<hr />
-	<hr />
-	<p class="direct">掲示板のタイトルを入力して登録ボタンを押してください</p>
+
+	<p class="direct">スレッドのタイトルを入力して登録ボタンを押してください</p>
 	<form action="insert" method="get">
 		<table>
 
 			<tr>
-				<td>掲示板タイトル</td>
+				<td>スレッドタイトル:</td>
 				<td><input type="text" name="title" value="" /></td>
 			</tr>
 			<tr>
