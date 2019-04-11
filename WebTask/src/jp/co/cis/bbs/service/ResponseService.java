@@ -11,7 +11,7 @@ public class ResponseService {
 	public void select(HttpServletRequest request) throws Exception{
 
 		ResponseDao rDao=null;
-		String t_id="1";
+		String t_id=request.getParameter("id");
 
 		try {
 
@@ -43,7 +43,7 @@ public class ResponseService {
 		ResponseDao rDao=null;
 
 		//登録に必要な情報取得（ページからの入力より）
-		String t_id="1";
+		String t_id=request.getParameter("id");
 		String r_name=request.getParameter("r_name");
 		String r_coment=request.getParameter("r_coment");
 
