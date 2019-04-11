@@ -35,11 +35,13 @@ public class ResponseServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		ResponseService rService = new ResponseService();
+		//ThreadDisp treadDisp = new ThreadDisp();
 
 		try {
 
 			//コメント検索
 			rService.select(request);
+			//treadDisp.execute(request);スレッドテーブルの呼び出し
 
 		} catch (Exception e) {
 
@@ -66,8 +68,12 @@ public class ResponseServlet extends HttpServlet {
 		try {
 
 			ResponseService rService = new ResponseService();
+			//ThreadDisp treadDisp = new ThreadDisp();
+
 			//コメント検索
 			rService.select(request);
+			
+			//treadDisp.execute(request);スレッドテーブルの呼び出し
 
 			if (btn != null && !btn.isEmpty()) {
 

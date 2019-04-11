@@ -28,6 +28,9 @@ public class ResponseDao {
 
 	//スレッドIDによる検索SQL文
 	private final String THREAD_ID_SEACH_SQL = "SELECT * FROM Response WHERE thread_id=?";
+	
+	//コメントの削除(現実には更新)
+	private final String THREAD_ID_UPDATE_SQL = "UPDATE Response SET response_name='管理者' response_coment='管理者により削除されました' WHERE thread_id=?";
 
 	/**インスタンス作成と同時にデータベースとの接続を行う
 	 * @throws SQLException
@@ -126,12 +129,12 @@ public class ResponseDao {
 			//結果をListに格納
 			while (rs.next()) {
 				rBean = new ResponseBean();
-				rBean.setT_id(rs.getInt("response_id"));
+				rBean.setR_id(rs.getInt("response_id"));
 				rBean.setT_id(rs.getInt("thread_id"));
 				rBean.setR_name(rs.getString("response_name"));
 				
 				
-				rBean.setR_coment(rs.getString("response_coment").replaceAll(" ", "<br>"));
+				rBean.setR_coment(rs.getString("response_coment").replaceAll("\n", "<br>"));
 				
 				comentList.add(rBean);
 			}
@@ -150,5 +153,48 @@ public class ResponseDao {
 		}
 
 	}
+	
+	/**管理者削除による書き換え
+	 * @param id レスポンスID
+	 * @param request　
+	 * @throws SQLException
+	 */
+	public void updateDao(int id,HttpServletRequest request) throws SQLException{
+		
+		PreparedStatement pstatement = null;
+		
+		pstatement = connection.prepareStatement(THREAD_ID_UPDATE_SQL);
+		
+		pstatement.setInt(1, id);
+		
+		int count = pstatement.executeUpdate();
+		
+		//登録の判定
+		if (count > 0) {
+
+			//登録成功時コミットの実施
+			connection.commit();
+			request.setAttribute("message", "コメント修正完了");
+
+		} else {
+
+			//登録失敗時ロールバックの実施
+			connection.rollback();
+			request.setAttribute("message", "コメント修正失敗");
+		}
+
+		//オブジェクトの開放の実施
+		pstatement.close();
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
 
 }

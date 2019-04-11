@@ -14,53 +14,67 @@
 
 <body>
 
-<div class="contents">
 
-	<header>
+<header>
 	<h1><span><%-- スレッド名 --%>コメントページ</span></h1>
-	<div class="box1"><p>趣味　趣味　趣味　趣味　趣味　趣味　趣味　趣味</p></div>
-	</header>
+	
+</header>
 
 
-	<form action="ResponseServlet" method="post" >
+
+
+
+
+<main>
+
+
+    
+    <section class="side">
+        <h3>(( 各メニュー ))</h3>
+		<p>削除したいコメント</p>
+		<p>コメントの名前変更</p>
+		<p>コメントの内容変更</p>
+		<p><a href="thread.jsp">トピックに戻る</a></p>
+    </section>
+    
+    <section class="main_content">
+    <form action="ResponseServlet" method="post" >
 	<!-- トピック表示欄 -->
-	<table border="1">
+	
 
-		<tr><td><%-- スレッド番号 --%><input type="text" name="t_id" value="1" /></td></tr>
-		<tr><td><%-- スレッド名 --%></td></tr>
-		<tr><td><%-- スレッド内容 --%></td></tr>
-		<tr><td><%-- 戻るリンク（スレッドへ） --%></td></tr>
+		<p><%-- スレッド番号 --%><input type="text" name="t_id" value="1" /></p>
+		<p><%-- スレッド名 --%></p>
+		<p><%-- スレッド内容 --%></p>
 
-	</table>
+
+	
 	<hr />
 	<!-- トピック表示欄終了 -->
-
+	
 	<p>${message}</p>
-
-	<!-- コメント追加記入欄 -->
-	<div class="box4">
+	
+	<h2>コメントの追加欄</h2>
+	<div class="box11">
 		<p>名前:<input type="text" name="r_name" value="" /></p>
 		<p>コメント内容</p>
-		<p><textarea name="r_coment" rows="10" cols="40"></textarea></p>
+		<p><textarea name="r_coment" rows="5" cols="60"></textarea></p>
 		<p><input type="submit" value="  画像添付  " class="btn-flat-simple" />
-			<input type="submit" value="  動画添付  " class="btn-flat-simple" />
-			<input type="submit" name="btn" value="   投稿   " class="btn-flat-simple" />
+		   <input type="submit" value="  動画添付  " class="btn-flat-simple" />
+		   <input type="submit" name="btn" value="   投稿   " class="btn-flat-simple" />
 		</p>
  	</div>
-
-	</form>
-	<!-- コメント追加記入欄　終了 -->
-
-
-
-	<!-- コメント投稿内容欄 -->
-
-	<c:if test="${not empty  comentList}">
+ 	
+ 	</form>
+ 	
+ 	<c:if test="${not empty  comentList}">
+ 	<h2>コメント投稿欄</h2>
 
 			<c:forEach var="coment" items="${comentList}">
-
+				
+				
+				
 				<div class="box11">
-
+					<p><div class="id">NO.${coment.r_id}</div></p>
 					<p>
 						ニックネーム:${coment.r_name}
 					</p>
@@ -73,11 +87,15 @@
 
 			</c:forEach>
 	</c:if>
+	
+    </section>
+</main>
 
-
-	<!-- コメント投稿内容欄終了 -->
-</div>
-
+<footer>
+<hr />
+<p><a href="thread.jsp">トピックに戻る</a></p>
+</footer>
 
 </body>
+
 </html>
