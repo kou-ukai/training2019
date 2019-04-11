@@ -42,7 +42,7 @@
 	<!-- トピック表示欄 -->
 	
 
-		<p><%-- スレッド番号 --%><input type="text" name="t_id" value="1" /></p>
+		<p><%-- スレッド番号 --%><input type="text" name="id" value="${id }" /></p>
 		<p><%-- スレッド名 --%></p>
 		<p><%-- スレッド内容 --%></p>
 

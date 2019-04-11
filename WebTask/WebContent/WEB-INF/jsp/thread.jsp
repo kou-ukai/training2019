@@ -19,24 +19,28 @@
 		<p>${message }</p>
 	</c:if>
 
-	<form action="ResponseServlet" method="get">
-		<c:if test="${not empty threadList }">
-			<c:forEach var="thread" items="${threadList }">
-				<input type="hidden" name="id" value=thread.id />
+
+	<c:if test="${not empty threadList }">
+		<c:forEach var="thread" items="${threadList }">
+			<form action="ResponseServlet" method="get">
+				<input type="hidden" name="id" value="${thread.id}" />
 				<div class="card">
 
 					<!--  <a href="ResponseServlet"> </a>-->
 					<input class="forward" type="submit" value="" />
 					<div class="card-content">
-						<div class="media-content"><span class="id">${thread.id }</span> ${thread.title }</div>
+						<div class="media-content">
+							<span class="id">${thread.id }</span> ${thread.title }
+						</div>
 						<div class="content">
 							<time>${thread.time }</time>
 						</div>
 					</div>
 				</div>
-			</c:forEach>
-		</c:if>
-	</form>
+			</form>
+		</c:forEach>
+	</c:if>
+
 
 	<form action="aa" method="post">
 		<input class="new" type="submit" value="新しくスレッドを作る" />
