@@ -18,18 +18,17 @@
 	<c:if test="${not empty message }">
 		<p>${message }</p>
 	</c:if>
-	<form action="bb" method="get">
+
+	<form action="ResponseServlet" method="get">
 		<c:if test="${not empty threadList }">
 			<c:forEach var="thread" items="${threadList }">
+				<input type="hidden" name="id" value=thread.id />
 				<div class="card">
-					<a href="bbb"> </a>
-					<div class="card-content">
-						<div class="media-content">
 
-							<p class="title is-4">
-								<input type="hidden" name="id" value=thread.id /> ${thread.title }
-							</p>
-						</div>
+					<!--  <a href="ResponseServlet"> </a>-->
+					<input class="forward" type="submit" value="" />
+					<div class="card-content">
+						<div class="media-content"><span class="id">${thread.id }</span> ${thread.title }</div>
 						<div class="content">
 							<time>${thread.time }</time>
 						</div>
@@ -40,7 +39,10 @@
 	</form>
 
 	<form action="aa" method="post">
-		<input type="submit" value="新しく掲示板を作る" />
+		<input class="new" type="submit" value="新しくスレッドを作る" />
 	</form>
 </body>
 </html>
+
+
+

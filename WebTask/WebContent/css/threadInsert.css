@@ -5,6 +5,20 @@ table, tr {
 	position: relative;
 	left: 10px;
 	top: 15px;
+	background:white;
+}
+.back{
+	background:indianred;
+}
+hr{
+	background:white;
+}
+html,body {
+	height: 1400px;
+	width: 1400px;
+	margin: 0 auto;
+	padding: 0;
+	background: beige;
 }
 
 td.insert {
@@ -16,18 +30,26 @@ h1 {
 	position: relative;
 	left: 10px;
 	top: 15px;
+	color: #00BCD4;
+	text-shadow: 2px 2px #fff, 5px 5px rgba(0, 188, 212, 0.4);
 }
 
 p.direct {
 	position: relative;
 	left: 10px;
 }
-p.message{
-	
+
+p.message {
 	font-size: 60px;
 	position: relative;
 	top: 15px;
 	left: 10px;
-	color:red;
-	background-color:white;
+	color: red;
+	background-color: white;
+}
+
+body>a {
+	position: relative;
+	left: 25px;
+	top: 30px;
 }
