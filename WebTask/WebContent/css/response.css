@@ -1,33 +1,63 @@
-
-
-/*コンテンツ　実際に使うページの設定*/
-.contents{
-width:852px;/*横幅を852pxで指定*/
-margin:0 auto;
-background-color:#dddde2;
-position:relative;/*相対的な位置へ配置*/
-font-size:80%;/*文字は見やすいように少し小さめに設定*/
+body{
+	
+	
+	background-color: #eeeeee;
 }
 
-
-/*ヘッダー部分の設定*/
-.header{
-background-color:#fe3834;
-height:100px; /*ヘーダーの高さメニュー部分まで合わせたサイズを指定*/
+header {
+    background-color:  #ffffff;
+    -webkit-border-radius: 40px;    /* 背景色指定 */
+}
+ 
+footer {
+    background-color: #eeeeee;
+}
+ 
+main {
+    background-color: #eeeeee;  
+    -webkit-border-radius: 5px;  /* 背景色指定 */
+    padding:  10px;            /* 余白指定 */
+    overflow:  hidden;         /* floatで高さがなくなる問題解消 */
+}
+ 
+.main_visual {
+    background-color:  #ccc;    /* 背景色指定 */
+    text-align:  center;        /* 文字中央揃え */
+    padding: 30px;              /* 余白指定 */
+}
+ 
+.side {
+    background-color: #ffffff;    /* 背景色指定 */
+    width: 20%; 
+    -webkit-border-radius: 10px;
+    text-align:  center;               /* 幅指定 */
+    float:  left;              /* 要素を並べる */
+    height: auto;             /* 高さ指定 */
+}
+ 
+.main_content {
+    background-color: #ffffff;
+    width: 70%;
+    -webkit-border-radius: 10px;
+    margin-right: 2.5%;
+    float: left;
+    height: auto;
+    margin-left: 7.0%;
 }
 
-h1 {
+ header{
   position: relative;
-  color: #158b2b;
+  color: #158b2b;s
   font-size: 20px;
   padding: 10px 0;
   text-align: center;
   margin: 1.5em 0;
 }
+
 h1:before {
   content: "";
   position: absolute;
-  top: -8px;
+  top: 17px;
   left: 50%;
   width: 150px;
   height: 58px;
@@ -56,55 +86,26 @@ h1:before {
   background-color: #3498db;
 }
 
+.id {
+    font-size: 50%;
+    margin-block-start: -1em;
+    margin-block-end: -11.5px;
+}
 
 
 
 
-.box11{
-	width: 320px;
-    height: 240px;
-    padding: 0.5em 1em;
-    margin: 2em 0;
+.box11 {
+    width: 65%;
+    height: auto;
+    padding: 0.5em 0.5em;
+    /* margin: 2em 0; */
     color: #5d627b;
     background: white;
     border-top: solid 5px #5d627b;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    /* text-align: center; */
+    margin-left: 17%;
+    margin-top: 1%;
+    /* margin-inline-end: 0%; */
 }
-.box11 tr {
-    margin: 0;
-    padding: 0;
-}
-
-
-.box4{
-	width: 320px;
-    height: 240px;
-    position: relative;
-    background: #fff0cd;
-    box-shadow: 0px 0px 0px 5px #fff0cd;
-    border: dashed 2px white;
-    padding: 0.2em 0.5em;
-    color: #454545;
-}
-.box4:after{
-    position: absolute;
-    content: '';
-    right: -7px;
-    top: -7px;
-    border-width: 0 15px 15px 0;
-    border-style: solid;
-    border-color: #ffdb88 #fff #ffdb88;
-    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
-}
-.box4 p {
-    margin: 0;
-    padding: 0;
-}
-
-
-
-
-
-
-
-
