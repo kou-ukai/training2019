@@ -35,19 +35,22 @@ public class ResponseServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		ResponseService rService = new ResponseService();
-		//ThreadDisp treadDisp = new ThreadDisp();
 
 		try {
 
 			//コメント検索
 			rService.select(request);
-			//treadDisp.execute(request);スレッドテーブルの呼び出し
+
+		} catch (SQLException e) {
+
+			//検索時の異常
+			request.setAttribute("message", "DBS異常");
 
 		} catch (Exception e) {
+			e.printStackTrace();
 
 			//検索時の異常
 			request.setAttribute("message", "コメント検索時にエラー発生（GET）");
-
 		}
 
 		ServletContext context = getServletContext();
@@ -68,17 +71,14 @@ public class ResponseServlet extends HttpServlet {
 		try {
 
 			ResponseService rService = new ResponseService();
-			//ThreadDisp treadDisp = new ThreadDisp();
-
-			//コメント検索
-			rService.select(request);
-			
-			//treadDisp.execute(request);スレッドテーブルの呼び出し
 
 			if (btn != null && !btn.isEmpty()) {
 
 				//コメントの追加
 				rService.insert(request);
+
+				//コメント検索
+				rService.select(request);
 
 			} else {
 
