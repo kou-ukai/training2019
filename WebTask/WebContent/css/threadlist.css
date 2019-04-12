@@ -8,16 +8,18 @@
 .card {
 	padding: 2px;
 	background: #ffffff;
-	width: 900px;
+	width: 750px;
 	height: 100px;
 	left: 10px;
 	margin: 10px;
 	border-radius: 15px;
 	z-index: 0;
 }
-.id{
-	color:red;
+
+.id {
+	color: red;
 }
+
 hr {
 	margin: 0;
 	height: 6px;
@@ -27,10 +29,38 @@ hr {
 
 html {
 	height: 1400px;
-	width: 1400px;
+	width: 1300px;
 	overflow: scroll;
 	margin: 0 auto;
 	padding: 0;
+}
+
+.question {
+	padding: 15px;
+	width: 300px;
+	background: white;
+	position: relative;
+	left: 850px;
+	text-align: center;
+	bottom: 250px;
+	margin: 9px;
+	cursor: pointer
+}
+
+
+.guide {
+	padding: 15px;
+	width: 350px;
+	background: ghostwhite;
+	position: relative;
+	left: 819px;
+	text-align: center;
+	bottom: 250px;
+	margin: 9px;
+	background: #67c5ff;
+	color: white;
+	font-size: px;
+	border-radius: 7px;
 }
 
 .card-content {
@@ -41,7 +71,7 @@ html {
 body {
 	height: 1400px;
 	background-color: lightgrey;
-	width: 1400px;
+	width: 100%;
 	margin: 0 auto;
 	padding: 0;
 }
@@ -112,7 +142,7 @@ input.new {
 	text-align: center;
 	position: relative;
 	bottom: 325px;;
-	left: 1000px;
+	left: 850px;
 	font-size: 25px;
 	color: blue;
 	border: solid 2px #67c5ff;

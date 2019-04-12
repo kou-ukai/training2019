@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BBS</title>
+<title>CISBBS</title>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
 <link rel="stylesheet" href="css/threadlist.css">
@@ -45,6 +45,21 @@
 	<form action="aa" method="post">
 		<input class="new" type="submit" value="新しくスレッドを作る" />
 	</form>
+	<div class="guide">
+		<p>
+			<strong>掲示板のご案内</strong>
+		</p>
+	</div>
+	<div class="question">
+		<p>会員登録/解除</p>
+	</div>
+	<div class="question">
+		<p>よくある質問</p>
+	</div>
+	<div class="question">
+		<p>利用規約</p>
+	</div>
+	
 </body>
 </html>
 
