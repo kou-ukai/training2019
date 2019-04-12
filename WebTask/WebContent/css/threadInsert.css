@@ -8,7 +8,7 @@ table, tr {
 	background:white;
 }
 .back{
-	background:indianred;
+	background:sandybrown;
 }
 hr{
 	background:white;
@@ -37,6 +37,7 @@ h1 {
 p.direct {
 	position: relative;
 	left: 10px;
+	
 }
 
 p.message {
