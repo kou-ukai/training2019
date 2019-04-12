@@ -142,7 +142,6 @@ public class ResponseDao {
 			if (!comentList.isEmpty()) {
 
 				request.setAttribute("comentList", comentList);
-				request.setAttribute("id", id);
 
 			}
 
