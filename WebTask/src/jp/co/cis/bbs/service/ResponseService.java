@@ -1,5 +1,7 @@
 package jp.co.cis.bbs.service;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import jp.co.cis.bbs.dao.ResponseDao;
@@ -10,19 +12,30 @@ public class ResponseService {
 	public void select(HttpServletRequest request) throws Exception {
 
 		ResponseDao rDao = null;
-		String t_id = request.getParameter("id");
+
+		String id = request.getParameter("id");
+
+		ArrayList<ResponseBean> comentList = new ArrayList<>();
+
+		int threadId;
 
 		try {
 
-			if (t_id != null && !t_id.isEmpty()) {
+			if (id != null && !id.isEmpty()) {
+
+				threadId = Integer.parseInt(id);
 
 				rDao = new ResponseDao();
-				rDao.threadIdSeach(Integer.parseInt(t_id), request);
-				request.setAttribute("id", t_id);
+
+				comentList = rDao.threadIdSeach(threadId);
+
+				request.setAttribute("comentList", comentList);
+
+				request.setAttribute("id", threadId);
 
 			} else {
 
-				request.setAttribute("message", "トッピクIDが見つかりません");
+				request.setAttribute("message", "データを受け取る事ができませんでした。");
 
 			}
 
@@ -35,6 +48,7 @@ public class ResponseService {
 			}
 
 		}
+
 	}
 
 	public void insert(HttpServletRequest request) throws Exception {
@@ -42,39 +56,53 @@ public class ResponseService {
 		ResponseDao rDao = null;
 
 		//登録に必要な情報取得（ページからの入力より）
-		String t_id = request.getParameter("id");
-		String r_name = request.getParameter("r_name");
-		String r_coment = request.getParameter("r_coment");
+		String id = request.getParameter("id");
+
+		String name = request.getParameter("r_name");
+
+		String coment = request.getParameter("r_coment");
+
+		int threadId;
 
 		try {
 
 			//登録する為の全ての情報があるか確認
-			if (t_id != null && !t_id.isEmpty() && r_name != null && !r_name.isEmpty() && r_coment != null
-					&& !r_coment.isEmpty()) {
+			if (id != null && !id.isEmpty() && name != null && !name.isEmpty() && coment != null
+					&& !coment.isEmpty()) {
 
 				ResponseBean rBean = new ResponseBean();
 
+				threadId = Integer.parseInt(id);
+
 				//Beanに登録したい情報を格納
-				rBean.setT_id(Integer.parseInt(t_id));
-				rBean.setR_name(r_name);
-				rBean.setR_coment(r_coment);
+				rBean.setT_id(threadId);
+
+				rBean.setR_name(name);
+
+				rBean.setR_coment(coment);
 
 				//ResponseInsertDaoに情報を引数で渡す
 				rDao = new ResponseDao();
-				rDao.insertResponseDao(rBean, request);
-				request.setAttribute("id", t_id);
+
+				rDao.insertResponseDao(rBean);
+
+				request.setAttribute("id", id);
 
 			} else {
 
 				//記入欄に未入力がある場合
-				request.setAttribute("message", "コメント欄に未記入があります。投稿できません");
+				request.setAttribute("message", "コメント欄に未記入があります。投稿できません。");
 
 			}
 
 		} finally {
+
 			if (rDao != null) {
+
 				rDao.close();
+
 			}
+
 		}
 
 	}

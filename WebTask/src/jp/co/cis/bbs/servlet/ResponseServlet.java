@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import jp.co.cis.bbs.service.ResponseService;
 
@@ -36,6 +37,10 @@ public class ResponseServlet extends HttpServlet {
 
 		ResponseService rService = new ResponseService();
 
+		HttpSession session = request.getSession(false);
+
+		String name = (String) session.getAttribute("name");
+
 		try {
 
 			//コメント検索
@@ -44,18 +49,25 @@ public class ResponseServlet extends HttpServlet {
 		} catch (SQLException e) {
 
 			//検索時の異常
-			request.setAttribute("message", "DBS異常");
+			request.setAttribute("message", "管理者に連絡してください");
+			
+		} catch (NumberFormatException e) {
+			
+			request.setAttribute("message", "データ不正です。");
 
 		} catch (Exception e) {
-			e.printStackTrace();
 
 			//検索時の異常
-			request.setAttribute("message", "コメント検索時にエラー発生（GET）");
+			request.setAttribute("message", "エラー発生");
+			
 		}
 
 		ServletContext context = getServletContext();
+
 		RequestDispatcher dispatcher = context.getRequestDispatcher("/WEB-INF/jsp/response.jsp");
+
 		dispatcher.forward(request, response);
+
 	}
 
 	/**
@@ -67,6 +79,10 @@ public class ResponseServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String btn = request.getParameter("btn");
+
+		HttpSession session = request.getSession(false);
+
+		String name = (String) session.getAttribute("name");
 
 		try {
 
@@ -88,7 +104,11 @@ public class ResponseServlet extends HttpServlet {
 
 		} catch (SQLException e) {
 
-			request.setAttribute("message", "DBS異常");
+			request.setAttribute("message", "管理者に連絡してください。");
+			
+		} catch (NumberFormatException e) {
+			
+			request.setAttribute("message", "データ不正です。");
 
 		} catch (Exception e) {
 
@@ -97,7 +117,9 @@ public class ResponseServlet extends HttpServlet {
 		}
 
 		ServletContext context = getServletContext();
+
 		RequestDispatcher dispatcher = context.getRequestDispatcher("/WEB-INF/jsp/response.jsp");
+
 		dispatcher.forward(request, response);
 		// http://localhost:8080/WebTask/ResponseServlet
 
